@@ -36,6 +36,8 @@ namespace ariel
 
         int gamesCounter = 0;
         int drawCounter = 0;
+        unsigned int win_p1 = 0;
+        unsigned int win_p2 = 0;
 
         // Constants
         static const int DeckSize = 52;
