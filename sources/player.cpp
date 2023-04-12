@@ -39,7 +39,7 @@ namespace ariel
     {
         Card top = deck.back();
         deck.pop_back();
-        taken++;
+        //top = top.getNumber();
         return top;
     }
 

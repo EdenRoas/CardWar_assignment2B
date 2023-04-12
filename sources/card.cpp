@@ -13,7 +13,9 @@ namespace ariel
 
     // ---------------------------------------------
 
-    unsigned int Card::getNumber() { return (number - 1 % 13) + 1; }
+    unsigned int Card::getNumber() { 
+        return ((number - 1) % 13) + 1; 
+    }
 
     Card::Type Card::getType()
     {

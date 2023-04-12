@@ -55,9 +55,10 @@ namespace ariel
 
         auto a = p1.getTop();
         auto b = p2.getTop();
+        //cout << "AAA: " << p1 << endl;
 
         turns.back() += string(p1.getName() + " played " + a.getNumberString() + " of " + a.getTypeString() + " " +
-                                    p2.getName() + " played " + b.getNumberString() + " of " + b.getTypeString() + ". ");
+                               p2.getName() + " played " + b.getNumberString() + " of " + b.getTypeString() + ". ");
 
         if (a.getNumber() == b.getNumber())
         {
@@ -96,11 +97,13 @@ namespace ariel
                     winner = a.getNumber() == 1 ? &p1 : &p2;
             }
             else
-                winner = (a.getNumber() > b.getNumber()) ? &p1 : &p2;
+                winner = (a.getNumber() > b.getNumber()) ? &p1 : &p2;    
+
+            winner->addTaken(1);
 
             // winner->push(a);
             // winner->push(b);
-            // for(auto c: total) winner->push(c);
+            // 
             turns.back() += winner->getName() + " wins.";
             if (winner->getName() == p1.getName())
                 win_p1++;
