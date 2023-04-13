@@ -3,7 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
-
+//#include <stdlib.h>
+#include <iomanip>
 #include "player.hpp"
 
 using namespace std;

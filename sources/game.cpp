@@ -163,23 +163,25 @@ namespace ariel
     void Game::printStats()
     {
          //Player1
+        
         cout << "******* Player 1 Stats: *******" << endl;
-        cout << "Amount of Turns:" << turns.size() << ", Amoount of win for player1: " << win_p1 << endl;
-        double p1WinRate = (win_p1 / turns.size()) * 100;
-        string str_p1WinRate = to_string(p1WinRate);
-        cout <<  "Win Rate for Player 1: " << str_p1WinRate << " %"<< endl; 
+        cout << "Amount of Turns:" << double(turns.size()) << ", Amoount of win for player1: " << win_p1 << endl;
+        //double p1WinRate = (static_cast<double>(double)win_p1 / turns.size()) ;
+        double p1WinRate = static_cast<double>((double)win_p1 / turns.size())*100;
+        //string str_p1WinRate = to_string(p1WinRate);
+        cout <<  "Win Rate for Player 1: " << setprecision(2) << p1WinRate << " %"<< endl; 
         cout << "Amoount of CardesTaken: " << p1.cardesTaken() << endl;
         //Player2
         cout << "******* Player 2 Stats: *******" << endl;
         cout << "Amount of Turns:" << turns.size() << ", Amoount of win for player2: " << win_p2 << endl;
-        double p2WinRate = (win_p2 / turns.size()) * 100;
-        string str_p2WinRate = to_string(p2WinRate);
-        cout <<  "Win Rate for Player 2: " << str_p2WinRate << " %"<< endl; 
+        double p2WinRate = static_cast<double>((double)win_p2 / turns.size())*100;
+        //string str_p2WinRate = to_string(p2WinRate);
+        cout <<  "Win Rate for Player 2: " << setprecision(2) << p2WinRate << " %"<< endl; 
         cout << "Amoount of CardesTaken: " << p2.cardesTaken() << endl;
         //DrawRate
         cout << "******* Draw Stats: *******" << endl;
-        double drawRate = ((drawCounter / gamesCounter) * 100);
-        cout << "Amount of draw: " << drawCounter << ", Draw Rate: " << drawRate << endl;
+        double drawRate = static_cast<double>((double)drawCounter / gamesCounter) * 100;
+        cout << "Amount of draw: " << drawCounter << ", Draw Rate: " << setprecision(2) << drawRate << endl;
 
     }
 
