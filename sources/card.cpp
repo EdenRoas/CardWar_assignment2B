@@ -5,7 +5,7 @@
 namespace ariel
 {
     Card::Card(unsigned int card)
-        : number(card + 1)
+        : number((int)card + 1)
     {
         if (number - 1>= MaxCards)
             throw runtime_error("Unknown card!");
@@ -13,7 +13,7 @@ namespace ariel
 
     // ---------------------------------------------
 
-    unsigned int Card::getNumber() { 
+    int Card::getNumber() { 
         return ((number - 1) % 13) + 1; 
     }
 

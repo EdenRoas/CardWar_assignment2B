@@ -33,28 +33,27 @@ namespace ariel
             else
                 p2.push(back);
         }
+
+        // p1.print();
+        // p2.print();
+        
     }
 
     // ---------------------------------------------
 
     void Game::internalPlayTurn(vector<Card> &total)
     {
-        if (p1.stacksize() <= 0)
-        {
-            whoWins = p2.getName();
-            return;
-        }
-
-        if (p2.stacksize() <= 0)
-        {
-            whoWins = p1.getName();
-            return;
-        }
-
         gamesCounter++;
+        
+        if(p1.stacksize() <= 0 || p2.stacksize() <= 0) {
+            whoWins = p1.cardesTaken() > p2.cardesTaken() ? p1.getName() : p2.getName();
+            return;
+        }
 
-        auto a = p1.getTop();
-        auto b = p2.getTop();
+        Card a, b;
+        a = p1.getTop();
+        b = p2.getTop();
+
         //cout << "AAA: " << p1 << endl;
 
         turns.back() += string(p1.getName() + " played " + a.getNumberString() + " of " + a.getTypeString() + " " +
@@ -99,7 +98,10 @@ namespace ariel
             else
                 winner = (a.getNumber() > b.getNumber()) ? &p1 : &p2;    
 
-            winner->addTaken(1);
+            if(total.empty())
+                winner->addTaken(2);
+            else
+                winner->addTaken(2 + total.size());
 
             // winner->push(a);
             // winner->push(b);
@@ -129,9 +131,8 @@ namespace ariel
     void Game::playAll()
     {
         while (whoWins.empty())
-        {
             playTurn();
-        }
+
         turns.erase(turns.begin());
     }
 

@@ -14,7 +14,7 @@ namespace ariel
     public:
         Card(unsigned int card = 0);
 
-        unsigned int getNumber();
+        int getNumber();
 
         enum class Type
         {
@@ -31,6 +31,6 @@ namespace ariel
 
     private:
         static const unsigned int MaxCards = 52;
-        unsigned int number;
+        int number;
     };
 }

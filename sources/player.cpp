@@ -4,13 +4,18 @@ using namespace std;
 namespace ariel
 {
     Player::Player(string name)
-        : m_name(name)
+        : m_name(name), deck()
     {
     }
 
     // ---------------------------------------------
 
-    int Player::stacksize() { return deck.size(); }
+    int Player::stacksize() { 
+        if(deck.empty())
+            return 0;
+        
+        return deck.size(); 
+    }
     int Player::cardesTaken() { return taken; }
 
     // ---------------------------------------------
@@ -18,14 +23,6 @@ namespace ariel
     const string &Player::getName()
     {
         return m_name;
-    }
-
-    void Player::print()
-    {
-        cout << "Player name: " << m_name << "\nDeck: {";
-        for (auto c : deck)
-            cout << c.getNumber() << ",";
-        cout << "}" << endl;
     }
 
     // ---------------------------------------------
@@ -49,4 +46,15 @@ namespace ariel
     {
         taken += adder;
     }
+
+    // ---------------------------------------------
+    
+    void Player::print()
+    {
+        cout << "Player name: " << m_name << "\nDeck: {";
+        for (auto c : deck)
+            cout << c.getNumber() << ",";
+        cout << "}" << endl;
+    }
+
 }

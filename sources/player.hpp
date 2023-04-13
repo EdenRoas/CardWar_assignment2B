@@ -25,9 +25,9 @@ namespace ariel
         void push(Card card);
         Card getTop();
 
-        void print();
-
         const string &getName();
+
+        void print();
 
     private:
         string m_name;
